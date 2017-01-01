@@ -1,0 +1,18 @@
+[
+  {
+    "icon": "home",
+    "name": "Comming home"
+  },
+  {
+    "icon": "wb_sunny",
+    "name": "Waking Up"
+  },
+  {
+    "icon": "tv",
+    "name": "Watch TV"
+  },
+  {
+    "icon": "music_note",
+    "name": "Play Music"
+  }
+]
