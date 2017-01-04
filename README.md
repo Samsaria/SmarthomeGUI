@@ -69,4 +69,5 @@ The template may look like this:
 ```
 **Note:** Each input needs an unique id. Simply use ```{templateId}``` for this, templating will handle the rest.
 
+**Note²:** As MDL processes even hidden templates (and destroys them by doing this), you have to replace ```mdl-js-CLASS``` by ```mdl-js-CLASS(template)``` in your templates, so that MDL does not change them. See the example with ```mdl-js-switch(template)``` above.
 
