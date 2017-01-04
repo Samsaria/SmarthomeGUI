@@ -76,15 +76,45 @@ function filterList(text, listSelector, itemTextFunction, emptyListSelector) {
 }
 
 //Sorting
-function sortByName(listSelector, textSelector) {
+function sortByName(listSelector, ascending, textSelector) {
     if (textSelector == null)
         textSelector = ".name";
 
+    if (ascending == null)
+        ascending = true;
+
     sortList(listSelector, (x, y) => {
-        return $(x).find(textSelector).text().toLowerCase().localeCompare($(y).find(textSelector).text().toLowerCase());
+        let compared = $(x).find(textSelector).text().toLowerCase().localeCompare($(y).find(textSelector).text().toLowerCase());
+        return ascending ? compared : -compared;
     })
+
+    setSortState("name", ascending);
 }
 
+function sortByState(listSelector, ascending) {
+    if (ascending == null)
+        ascending = true;
+
+    sortList(listSelector, (x, y) => {
+        let cx = $(x).find(".mdl-switch").hasClass("is-checked");
+        let cy = $(y).find(".mdl-switch").hasClass("is-checked");
+
+        let val;
+        if (cx === cy)
+            val = 0;
+        if (cx && !cy)
+            val = -1;
+        else
+            val = 1;
+
+        return ascending ? val : -val;
+    })
+
+    setSortState("state", ascending);
+}
+
+
+//Generic sorting methods
 function sortList(listSelector, comparerFunction) {
     var elements = getListItems(listSelector);
     elements.sort(comparerFunction);
@@ -93,5 +123,55 @@ function sortList(listSelector, comparerFunction) {
     for (let i = 0; i < elements.length; i++) {
         let element = elements.eq(i);
         element.css("order", i);
+    }
+}
+
+function setSortState(prop, ascending) {
+    var sortings = window.sortings;
+    //prop should be a property of the sortings object
+    if (!sortings || typeof prop !== "string" || sortings[prop] === undefined)
+        return;
+
+    if (ascending) {
+        sortings[prop] = true;
+    } else {
+        sortings[prop] = false;
+    }
+
+    //Reset other sortings
+    for (let key in sortings) {
+        if (key !== prop)
+            sortings[key] = null;
+    }
+
+    setSortButtonVisibilities();
+}
+
+function setSortButtonVisibilities() {
+    var sortings = window.sortings;
+    var sortButtons = window.sortButtons;
+
+    if (!sortings || !sortButtons)
+        return;
+
+    for (let prop in sortings) {
+        let buttonsContainer = sortButtons[prop];
+        let state = sortings[prop];
+
+        if (buttonsContainer == null || state === undefined)
+            continue;
+
+        buttonsContainer.removeClass("sort-ctn-asc sort-ctn-desc sort-ctn-none")
+        switch (state) {
+            case true:
+                buttonsContainer.addClass("sort-ctn-asc");
+                break;
+            case false:
+                buttonsContainer.addClass("sort-ctn-desc");
+                break;
+            case null:
+                buttonsContainer.addClass("sort-ctn-none");
+                break;
+        }
     }
 }

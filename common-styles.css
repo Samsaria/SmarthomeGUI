@@ -13,3 +13,24 @@
 }
 
 /*IMPORTANT, LIVE-SAVING INFO: Dont add visual styles for mobile and/or desktop here!!! :) */
+
+/*Sorting*/
+.sort-ctn-asc .sort-asc {
+  background: #448aff;
+  color: white;
+}
+.sort-ctn-asc .sort-desc {
+  display: none;
+}
+
+.sort-ctn-desc .sort-asc {
+  display: none;
+}
+.sort-ctn-desc .sort-desc {
+  background: #448aff;
+  color: white;
+}
+
+.sort-ctn-none .sort-desc {
+  display: none;
+}

@@ -1,30 +1,35 @@
 //Load data
-$(document).ready(() =>
-    createListFromFile("#device-list", ".template > li", "devices.json")
-);
+$(document).ready(() => {
+    createListFromFile("#device-list", ".template > li", "devices.json").then(
+        () => sortByName("#device-list", true)
+    )
+
+});
 
 //Filtering
 $("#device-filter").keyup(onFilterChanged);
 $("#device-filter").change(onFilterChanged);
+
 function onFilterChanged(evt) {
     var text = $(evt.target).val();
-    filterList(text, "#device-list");
+    filterList(text, "#device-list", x => x.find(".name").text());
 }
 
-function filterList(text, listSelector, emptyListSelector) {
-    if (emptyListSelector == null)
-        emptyListSelector = ".empty-list";
+//Sorting: true/false/null for ascending/descending/none
+$("#sort-by-name .sort-asc").click(() => sortByName("#device-list", false));
+$("#sort-by-name .sort-desc").click(() => sortByName("#device-list", true));
+$("#sort-by-state .sort-asc").click(() => sortByState("#device-list", false));
+$("#sort-by-state .sort-desc").click(() => sortByState("#device-list", true));
 
-    text = text.toLowerCase();
-
-    var listItems = $(listSelector).find(".mdl-list__item:not(" + emptyListSelector + ")");
-    for (let i = 0; i < listItems.length; i++) {
-        let item = listItems.eq(i);
-        let includes = item.text().toLowerCase().includes(text);
-        if (includes) {
-            item.show();
-        } else {
-            item.hide();
-        }
-    }
+var sortings = {
+    name: null,
+    state: null
 }
+
+var sortButtons = {
+    name: $("#sort-by-name"),
+    state: $("#sort-by-state"),
+}
+
+//Setup on page load
+setSortButtonVisibilities();
