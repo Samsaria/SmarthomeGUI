@@ -32,6 +32,8 @@ function createListFromData(listSelector, templateSelector, data) {
         return; //No element found
 
     var templateStr = templateElement[0].outerHTML;
+    //Replace all "(template)" placeholders"
+    templateStr = templateStr.replace(/\(template\)/g, "");
 
     for (let element of data) {
         //MDL needs an unique id for each inpute element. Create a random GUID
@@ -40,6 +42,9 @@ function createListFromData(listSelector, templateSelector, data) {
         let filledTemplate = nano(templateStr, element);
         listElement.append(filledTemplate);
     }
+
+    //Tell MDL to update elements
+    componentHandler.upgradeElements(listElement);
 }
 
 function readDataFile(dataFilePath) {

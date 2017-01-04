@@ -60,7 +60,7 @@ The template may look like this:
             {name}
         </span>
 		<span class="mdl-list__item-secondary-action">
-                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="{templateId}">
+                <label class="mdl-switch mdl-js-switch(template) mdl-js-ripple-effect" for="{templateId}">
                         <input type="checkbox" id="{templateId}" class="mdl-switch__input" {state} />
                 </label>
         </span>
