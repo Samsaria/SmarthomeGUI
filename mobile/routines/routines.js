@@ -9,6 +9,6 @@ templateElement.onclick({
 
 });
 
-function routineExecuted(){
+function routineExecuted() {
     swal("Successfully executed!!", "Wait for your devices to perform!", "success");
 }
