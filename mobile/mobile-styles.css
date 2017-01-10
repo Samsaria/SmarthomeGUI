@@ -46,3 +46,11 @@
     display: flex;
     flex-direction: column;
 }
+
+.active_green{
+    color: forestgreen;
+}
+
+.active_red{
+    color: darkred;
+}
