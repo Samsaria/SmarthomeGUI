@@ -19,12 +19,12 @@ function guidGenerator(noTrailingUnderscore) {
     return guid;
 }
 
-function createListFromFile(listSelector, templateSelector, dataFilePath) {
+function createListFromFile(listSelector, templateSelector, dataFilePath, identifier) {
     return readDataFile(dataFilePath)
-        .then(result => createListFromData(listSelector, templateSelector, result));
+        .then(result => createListFromData(listSelector, templateSelector, result, identifier));
 }
 
-function createListFromData(listSelector, templateSelector, data) {
+function createListFromData(listSelector, templateSelector, data, identifier) {
     var listElement = $(listSelector);
     var templateElement = $(templateSelector);
 
@@ -45,6 +45,7 @@ function createListFromData(listSelector, templateSelector, data) {
 
     //Tell MDL to update elements
     componentHandler.upgradeElements(listElement);
+    writeTolocalStorage(identifier, data);
 }
 
 function readDataFile(dataFilePath) {
@@ -181,3 +182,44 @@ function setSortButtonVisibilities() {
     }
 }
 
+
+/** Modify json data **/
+
+function writeTolocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
+function createObjectFromFile(dataFilePath) {
+    return readDataFile(dataFilePath)
+        .then(result => result);
+}
+
+
+function updateCheckedData(data, modifiedDeviceId) {
+    var found = data.findIndex(function (item) {
+        return item.id === modifiedDeviceId;
+    });
+    if (found != -1) {
+        if (data[found]["state"] === "checked") {
+            data[found]["state"] = "unchecked";
+        }
+        else {
+            data[found]["state"] = "checked";
+        }
+
+        writeTolocalStorage("devices", data);
+    }
+    else {
+        swal('Data not found!', 'error');
+    }
+}
+
+function getCheckedDevices(data) {
+    var found = data.filter(function (item) {
+        if(item.state == "checked"){
+            return item;
+        }
+
+    });
+    return found;
+}

@@ -1,12 +1,29 @@
 const removeDelay = 1500; //ms
+const dataFilePath = '../../data/devices.json';
 
 //Load data
-$(document).ready(() =>
-    createListFromFile("#overview-list", ".template > li", "../../data/overviewList.json")
+$(document).ready(() => {
+        var localStorageDevices = JSON.parse(localStorage.getItem('devices'));
+        if (localStorageDevices) {
+            var activeDevices = getCheckedDevices(localStorageDevices);
+            createListFromData("#overview-list", ".template > li", activeDevices);
+        } else {
+            return readDataFile(dataFilePath)
+                .then(fileDevices =>  {
+                    var activeDevices = getCheckedDevices(fileDevices);
+                    createListFromData("#overview-list", ".template > li", activeDevices);
+                });
+        }
+    }
 );
 
 //Click listeners for switching off devices
-$(document).on("click", "input", evt => removeListEntryAfterDelay(evt.target));
+$(document).on("click", "input", function (evt) {
+    var id = evt.target.attributes.jsonid.nodeValue;
+    var storedDevices = JSON.parse(localStorage.getItem('devices'));
+    updateCheckedData(storedDevices, id);
+    removeListEntryAfterDelay(evt.target);
+});
 
 function removeListEntryAfterDelay(inputElement) {
     var $input = $(inputElement);

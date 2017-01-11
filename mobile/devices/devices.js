@@ -1,10 +1,23 @@
-//Load data
-$(document).ready(() => {
-    createListFromFile("#device-list", ".template > li", "../../data/devices.json").then(
-        () => sortByName("#device-list", true)
-    )
+const dataFilePath = '../../data/devices.json';
 
+//Load data either from local storage, if not present load from file
+$(document).ready(() => {
+    var localStorageDevices = JSON.parse(localStorage.getItem('devices'));
+    if (localStorageDevices) {
+        createListFromData("#device-list", ".template > li", localStorageDevices, "devices");
+    } else {
+        createListFromFile("#device-list", ".template > li", dataFilePath, "devices")
+            .then(() =>  sortByName("#device-list", true));
+    }
 });
+
+//Click listeners for switching off devices and storing to localstorage
+$(document).on("click", "input", function (evt) {
+    var id = evt.target.attributes.jsonid.nodeValue;
+    var storedDevices = JSON.parse(localStorage.getItem('devices'));
+    updateCheckedData(storedDevices, id);
+});
+
 
 //Filtering
 $("#device-filter").keyup(onFilterChanged);

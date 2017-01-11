@@ -1,16 +1,27 @@
-const removeDelay = 1500; //ms
-
-//Load data
-$(document).ready(function() {
-    createListSubListFromFile("#groups-list", ".template > li", ".subListTemplate > li", "../../data/groups.json")
+//Load data either from local storage, if not present load from file
+$(document).ready(() => {
+    var localStorageGroups = JSON.parse(localStorage.getItem('groups'));
+    if (localStorageGroups) {
+        createSubListFromData("#groups-list", ".template > li", ".subListTemplate > li", localStorageGroups, "groups");
+    } else {
+        createListSubListFromFile("#groups-list", ".template > li", ".subListTemplate > li", "../../data/groups.json", "groups");
+    }
 });
 
-function createListSubListFromFile(listSelector, templateSelector, subListTemplateSelector, dataFilePath) {
+//Click listeners for switching off devices and storing to localstorage
+$(document).on("click", "input", function (evt) {
+    var id = evt.target.attributes.jsonid.nodeValue;
+    var storedDevices = JSON.parse(localStorage.getItem('devices'));
+    updateCheckedData(storedDevices, id);
+});
+
+
+function createListSubListFromFile(listSelector, templateSelector, subListTemplateSelector, dataFilePath, identifier) {
     return readDataFile(dataFilePath)
-        .then(result => createSubListFromData(listSelector, templateSelector, subListTemplateSelector, result));
+        .then(result => createSubListFromData(listSelector, templateSelector, subListTemplateSelector, result, identifier));
 }
 
-function createSubListFromData(listSelector, templateSelector, subListTemplateSelector, data) {
+function createSubListFromData(listSelector, templateSelector, subListTemplateSelector, data, identifier) {
 
     var listElement = $(listSelector);
     var subListTemplateElement = $(subListTemplateSelector);
@@ -29,20 +40,26 @@ function createSubListFromData(listSelector, templateSelector, subListTemplateSe
     templateStr = templateStr.replace(/\(template\)/g, "");
     subListTemplateStr = subListTemplateStr.replace(/\(template\)/g, "");
 
-    readDataFile("../../data/devices.json")
-        .then(subList => parseInformation(data, subList, templateStr, listElement, subListTemplateStr));
+    writeTolocalStorage(identifier, data);   //Store groups to local storage
+
+    /****Get devices for groups either from local storage or file*********/
+    var localStorageDevices = JSON.parse(localStorage.getItem('devices'));
+    if (localStorageDevices) {
+        parseInformation(data, localStorageDevices, templateStr, listElement, subListTemplateStr, "devices");
+    } else {
+        readDataFile("../../data/devices.json")
+            .then(subList => parseInformation(data, subList, templateStr, listElement, subListTemplateStr, "devices"));
+    }
+
+
 
 }
-function parseInformation(data, subList, templateStr, listElement, subListTemplateStr) {
+function parseInformation(data, subList, templateStr, listElement, subListTemplateStr, identifier) {
     for (let element of data) {
         //MDL needs an unique id for each inpute element. Create a random GUID
-        element.templateId = guidGenerator();
 
         let filledTemplate = nano(templateStr, element);
         listElement.append(filledTemplate);
-
-        var ids = [];
-
 
         $.each(element.devices,function(index, item){
             $.each(subList, function(i, subListItem){
@@ -57,6 +74,7 @@ function parseInformation(data, subList, templateStr, listElement, subListTempla
         });
     }
 
+    writeTolocalStorage(identifier, subList); //write devices to local storage
     //Tell MDL to update elements
     componentHandler.upgradeElements(listElement);
 
