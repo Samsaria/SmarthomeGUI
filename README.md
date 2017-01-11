@@ -10,7 +10,7 @@ For the mobile version, I included jquery and simple templates for generating li
 + **Function**: JQuery and the [Nano Templating Engine](https://github.com/trix/nano) are used in the mobile version. Data (devices and routines) are stored in *.json* files, which in turn are read in and get templates rendered for.
 * **Tools**: (This only applies if you want to use *.json* files for data, as AJAX needs a web server. Serving html files only does not.). A *package.json* file is included **for npm-users**, using *lite-server* as an HTTP-server. Simply execute *npm install* followed by *npm start* to start the server.  **Non-npm-users** can use any HTTP-server they like. E.g. WebStorm integrated or Apache.
 
-
+Also using sweetalert for nice responses ;)
 Seems like an overkill? Maybe, but in my opinion it's better than wasting hours for changing static HTML pages again and again. And it makes parallel work easier!
 
 ## Folder and File Structure
@@ -71,3 +71,16 @@ The template may look like this:
 
 **Note²:** As MDL processes even hidden templates (and destroys them by doing this), you have to replace ```mdl-js-CLASS``` by ```mdl-js-CLASS(template)``` in your templates, so that MDL does not change them. See the example with ```mdl-js-switch(template)``` above.
 
+
+##Json Data
+
+#How to make Groups
+
+Now it is only neccessary to provide the informmation (id) of the specified devices in the groups(.json) file
+All data will be retrieved and  displayed in the groups page.
+If you want to define further groups just do it in the json file and provide in the {devices}-Object the device ids.
+Unfortunately they must be specified at the devices json.
+
+
+#TODO
+Store the checked or unchecked JSON states!!!!!

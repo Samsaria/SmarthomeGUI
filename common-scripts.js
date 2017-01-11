@@ -180,3 +180,12 @@ function setSortButtonVisibilities() {
         }
     }
 }
+
+function parseIdValues(data, ids){
+    return $.map(data, function(item){
+        if($.inArray(item.id, ids) > -1){
+            return item;
+        }
+    });
+}
+

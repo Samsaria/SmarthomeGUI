@@ -1,0 +1,20 @@
+[
+    {
+        "icon": "devices",
+        "name": "All TVs",
+        "devices": [
+            {"id": "tv_living_1"},
+            {"id": "tv_living_2"},
+            {"id": "tv_living_3"}
+        ]
+    },
+    {
+        "icon": "format_align_justify",
+        "name": "All Shutters",
+        "devices": [
+            {"id": "shutter_living_1"},
+            {"id": "shutter_living_2"},
+            {"id": "shutter_living_3"}
+        ]
+    }
+]
