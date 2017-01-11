@@ -45,11 +45,10 @@ function parseInformation(data, subList, templateStr, listElement, subListTempla
 
 
         $.each(element.devices,function(index, item){
-            item.templateId = guidGenerator();
-
             $.each(subList, function(i, subListItem){
                 if (item.id == subListItem.id) {
                     item = subListItem;
+                    item.templateId = guidGenerator();
                 }
             });
 

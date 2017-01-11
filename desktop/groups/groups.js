@@ -36,7 +36,6 @@ function createSubListFromData(listSelector, templateSelector, subListTemplateSe
 function parseInformation(data, subList, templateStr, listElement, subListTemplateStr) {
     for (let element of data) {
         //MDL needs an unique id for each inpute element. Create a random GUID
-        element.templateId = guidGenerator();
 
         let filledTemplate = nano(templateStr, element);
         listElement.append(filledTemplate);
@@ -45,11 +44,10 @@ function parseInformation(data, subList, templateStr, listElement, subListTempla
 
 
         $.each(element.devices,function(index, item){
-            item.templateId = guidGenerator();
-
             $.each(subList, function(i, subListItem){
                 if (item.id == subListItem.id) {
                     item = subListItem;
+                    item.templateId = guidGenerator();
                 }
             });
 
