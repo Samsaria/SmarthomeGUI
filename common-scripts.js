@@ -236,5 +236,7 @@ function mainItemClicked(mainItem) {
     if (!wasActive) {
         mainItem.addClass("active");
         mainItem.nextUntil(".main-item").addClass("active");
+    } else {
+        mainItem.removeClass("active");
     }
 }
