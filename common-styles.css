@@ -5,10 +5,10 @@
 
 /*Hide/Show info for an empty list (e.g. "no active devices") */
 .empty-list {
-    display:none;
+    display: none;
 }
 
-.mdl-list__item:only-of-type{
+.mdl-list__item:only-of-type {
     display: flex;
 }
 
@@ -16,21 +16,32 @@
 
 /*Sorting*/
 .sort-ctn-asc .sort-asc {
-  background: #448aff;
-  color: white;
+    background: #448aff;
+    color: white;
 }
+
 .sort-ctn-asc .sort-desc {
-  display: none;
+    display: none;
 }
 
 .sort-ctn-desc .sort-asc {
-  display: none;
+    display: none;
 }
+
 .sort-ctn-desc .sort-desc {
-  background: #448aff;
-  color: white;
+    background: #448aff;
+    color: white;
 }
 
 .sort-ctn-none .sort-desc {
-  display: none;
+    display: none;
+}
+
+/*nested lists*/
+.sub-item {
+    display: none;
+}
+
+.sub-item.active {
+    display: inherit;
 }

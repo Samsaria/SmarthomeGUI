@@ -216,10 +216,25 @@ function updateCheckedData(data, modifiedDeviceId) {
 
 function getCheckedDevices(data) {
     var found = data.filter(function (item) {
-        if(item.state == "checked"){
+        if (item.state == "checked") {
             return item;
         }
 
     });
     return found;
+}
+
+// NestedLists
+function mainItemClicked(mainItem) {
+    mainItem = $(mainItem);
+
+    var wasActive = mainItem.hasClass("active");
+
+    mainItem.siblings().removeClass("active");
+
+    //If it wasnt active before, set it to active
+    if (!wasActive) {
+        mainItem.addClass("active");
+        mainItem.nextUntil(".main-item").addClass("active");
+    }
 }

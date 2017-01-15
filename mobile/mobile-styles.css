@@ -25,6 +25,9 @@
     margin-top: 0;
 }
 
+.black-icon{
+    color: #444;
+}
 /*Devices*/
 .mdl-textfield {
     width: 100%;
