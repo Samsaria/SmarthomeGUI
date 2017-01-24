@@ -9,6 +9,15 @@
         ]
     },
     {
+    	"icon": "lightbulb_outline",
+    	"name": "All Lights",
+    	"devices": [
+    		{"id": "light_living_1"},
+    		{"id": "light_living_2"},
+    		{"id": "light_living_3"},
+    	]
+    },
+    {
         "icon": "format_align_justify",
         "name": "All Shutters",
         "devices": [
@@ -16,5 +25,13 @@
             {"id": "shutter_living_2"},
             {"id": "shutter_living_3"}
         ]
+    },
+    {
+    	"icon": "devices",
+    	"name": "All other Devices",
+    	"devices": [
+    		{"id": "fume_1"},
+    		{"id": "beamer_living_1"}
+    	]
     }
 ]

@@ -1,12 +1,12 @@
 [
   {
     "icon": "home",
-    "name": "Comming home"
+    "name": "Coming home"
   },
   {
     "icon": "wb_sunny",
     "name": "Waking Up",
-    "repeat_at": "19:00",
+    "repeat_at": "8:30",
     "active_style": "active_green",
     "state": "checked"
   },
@@ -15,7 +15,6 @@
     "name": "Going to Sleep",
     "repeat_at": "23:00",
     "active_style": "active_red"
-
   },
   {
     "icon": "tv",

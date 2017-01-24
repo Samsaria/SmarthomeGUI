@@ -3,54 +3,54 @@
         "id": "light_living_1",
         "icon": "lightbulb_outline",
         "name": "Main light, Living Room",
-        "state": "unchecked"
-    },
-    {
-        "id": "shutter_living_1",
-        "icon": "format_align_justify",
-        "name": "South Shutter, Living Room, North",
-        "state": "checked"
-    },
-    {
-        "id": "tv_living_1",
-        "icon": "devices",
-        "name": "TV, Living Room 1",
         "state": "checked"
     },
     {
         "id": "light_living_2",
         "icon": "lightbulb_outline",
-        "name": "Main light, Living Room",
-        "state": "checked"
+        "name": "Hue light, Living Room",
+        "state": "unchecked"
+    },
+    {
+        "id": "light_living_3",
+        "icon": "lightbulb_outline",
+        "name": "Small light, Living Room",
+        "state": "unchecked"
+    },
+    {
+        "id": "shutter_living_1",
+        "icon": "format_align_justify",
+        "name": "TV Screen, Living Room",
+        "state": "unchecked"
+    },
+    {
+        "id": "beamer_living_1",
+        "icon": "devices",
+        "name": "Beamer, Living Room",
+        "state": "unchecked"
     },
     {
         "id": "shutter_living_2",
         "icon": "format_align_justify",
         "name": "South Shutter, Living Room, West",
-        "state": "checked"
+        "state": "unchecked"
+    },
+    {
+        "id": "tv_living_1",
+        "icon": "devices",
+        "name": "TV, Living Room 1",
+        "state": "unchecked"
+    },
+    {
+        "id": "fume_1",
+        "icon": "devices",
+        "name": "Fume Cupboard, Kitchen",
+        "state": "unchecked"
     },
     {
         "id": "tv_living_2",
         "icon": "devices",
         "name": "TV, Living Room 2",
-        "state": "checked"
-    },
-    {
-        "id": "light_living_3",
-        "icon": "lightbulb_outline",
-        "name": "Main light, Living Room",
-        "state": "checked"
-    },
-    {
-        "id": "shutter_living_3",
-        "icon": "format_align_justify",
-        "name": "South Shutter, Living Room, East",
-        "state": "checked"
-    },
-    {
-        "id": "tv_living_3",
-        "icon": "devices",
-        "name": "TV, Living Room 3",
-        "state": "checked"
+        "state": "unchecked"
     }
 ]
