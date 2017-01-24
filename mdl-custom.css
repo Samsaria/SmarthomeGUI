@@ -242,3 +242,7 @@ html, body {
 .mdl-demo .mdl-menu__container {
   z-index: 99;
 }
+
+.mdl-grid.center-items {
+  justify-content: center;
+}
