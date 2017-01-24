@@ -1,3 +1,4 @@
+
 /* Nano Templates - https://github.com/trix/nano */
 function nano(template, data) {
     return template.replace(/\{([\w\.]*)\}/g, function (str, key) {
@@ -17,6 +18,11 @@ function guidGenerator(noTrailingUnderscore) {
     };
     var guid = (noTrailingUnderscore ? "" : "_") + (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
     return guid;
+}
+
+function reloadJSON(dataFilePath, identifier){
+    return readDataFile(dataFilePath)
+        .then(result =>  writeTolocalStorage(identifier, result));
 }
 
 function createListFromFile(listSelector, templateSelector, dataFilePath, identifier) {

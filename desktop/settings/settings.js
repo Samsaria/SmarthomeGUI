@@ -10,8 +10,14 @@ function resetState() {
         },
         function(){
             localStorage.clear();
+            reloadData();
             swal("Resetted!", "Data has been reset", "success");
         });
 }
 
+function reloadData(){
+    reloadJSON("../../data/routines.json", "routines");
+    reloadJSON("../../data/devices.json", "devices");
+    reloadJSON("../../data/groups.json", "groups");
+}
 

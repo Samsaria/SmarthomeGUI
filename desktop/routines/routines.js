@@ -1,6 +1,6 @@
 //Load data
 $(document).ready(function() {
-    createListFromFile("#routine-list", ".template > li", "../../data/routines.json");
+    createListFromFile("#routine-list", ".template > li", "../../data/routines.json", "routines");
 });
 
 function routineExecuted() {
