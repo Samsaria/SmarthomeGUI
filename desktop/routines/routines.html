@@ -47,10 +47,11 @@
             <h3>SmartHome</h3>
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-            <a href="../overview/overview.html" class="mdl-layout__tab">Overview</a>
+            <a href="../overview/overview.html" class="mdl-layout__tab">Home</a>
             <a href="routines.html" class="mdl-layout__tab is-active">Routines</a>
             <a href="../groups/groups.html" class="mdl-layout__tab">Groups</a>
             <a href="../devices/devices.html" class="mdl-layout__tab">Devices</a>
+            <a href="../settings.html" class="mdl-layout__tab">	<i class="material-icons" style="margin-top: 75%">settings</i></a>
     </header>
     <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="routines">
@@ -85,8 +86,12 @@
                                     <li style="margin-bottom: -5px"><span
                                             class="name {active_style} ">{repeat_at}</span></li>
                                     <li><span class="name {active_style} ">{name}</span></li>
+
                                 </ul>
 							</span>
+
+                        <a href="edit?id={id}" id="show-dialog" type="button" class="mdl-button">Edit</a>
+
                         <a href="#" onclick="routineExecuted()">
 							<span class="mdl-list__item-secondary-action">
                                     <i class="material-icons">play_arrow</i>
@@ -99,6 +104,7 @@
             </section>
         </div>
     </main>
+
 </div>
 
 <!--Common scripts-->

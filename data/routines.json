@@ -1,28 +1,103 @@
 [
   {
-    "icon": "home",
-    "name": "Coming home"
+    "id": "routine_1",
+    "icon": "tv",
+    "name": "Projection",
+    "devices": [
+      [
+        {
+          "id": "beamer_living_1",
+          "state": "unchecked"
+        },
+        {
+          "id": "shutter_living_1",
+          "new_state": "down"
+        },
+        {
+          "id": "light_living_1",
+          "new_state": "unchecked"
+        },
+        {
+          "id": "light_living_2",
+          "new_state": "unchecked"
+        }
+      ]
+    ]
   },
   {
+    "id": "routine_2",
+    "icon": "tv",
+    "name": "Cooking",
+    "devices": [
+      [
+        {
+          "id": "light_dining_1",
+          "new_state": "checked"
+        },
+        {
+          "id": "light_kitchen_1",
+          "new_state": "checked"
+        },
+        {
+          "id": "fume_1",
+          "new_state": "checked"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "routine_2",
     "icon": "wb_sunny",
     "name": "Waking Up",
-    "repeat_at": "8:30",
+    "repeat_at": "06:30",
     "active_style": "active_green",
-    "state": "checked"
+    "state": "checked",
+    "devices": [
+      [
+        {
+          "id": "light_dining_1",
+          "new_state": "checked"
+        },
+        {
+          "id": "light_living_1",
+          "new_state": "checked"
+        },
+        {
+          "id": "light_living_2",
+          "new_state": "checked"
+        },
+        {
+          "id": "light_kitchen_1",
+          "new_state": "checked"
+        }
+      ]
+    ]
   },
   {
+    "id": "routine_3",
     "icon": "brightness_2",
     "name": "Going to Sleep",
     "repeat_at": "23:00",
-    "active_style": "active_red"
-  },
-  {
-    "icon": "tv",
-    "name": "Watch TV"
-  },
-  {
-    "icon": "music_note",
-    "name": "Play Music"
+    "active_style": "active_red",
+    "devices": [
+      [
+        {
+          "id": "light_dining_1",
+          "new_state": "unchecked"
+        },
+        {
+          "id": "light_living_1",
+          "new_state": "unchecked"
+        },
+        {
+          "id": "light_living_2",
+          "new_state": "unchecked"
+        },
+        {
+          "id": "light_kitchen_1",
+          "new_state": "unchecked"
+        }
+      ]
+    ]
   }
-
 ]

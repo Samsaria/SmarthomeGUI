@@ -2,55 +2,43 @@
     {
         "id": "light_living_1",
         "icon": "lightbulb_outline",
-        "name": "Main light, Living Room",
-        "state": "checked"
+        "name": "Living Room, Screen Light",
+        "state": "unchecked"
     },
     {
         "id": "light_living_2",
         "icon": "lightbulb_outline",
-        "name": "Hue light, Living Room",
+        "name": "Living Room, Couch Light",
         "state": "unchecked"
     },
     {
-        "id": "light_living_3",
+        "id": "light_dining_1",
         "icon": "lightbulb_outline",
-        "name": "Small light, Living Room",
+        "name": "Dining Room, Hue Light",
         "state": "unchecked"
     },
     {
         "id": "shutter_living_1",
-        "icon": "format_align_justify",
-        "name": "TV Screen, Living Room",
-        "state": "unchecked"
+        "icon": "tablet",
+        "name": "Living Room, Projection Screen",
+        "state": "up"
     },
     {
         "id": "beamer_living_1",
-        "icon": "devices",
-        "name": "Beamer, Living Room",
-        "state": "unchecked"
-    },
-    {
-        "id": "shutter_living_2",
-        "icon": "format_align_justify",
-        "name": "South Shutter, Living Room, West",
-        "state": "unchecked"
-    },
-    {
-        "id": "tv_living_1",
-        "icon": "devices",
-        "name": "TV, Living Room 1",
+        "icon": "videocam",
+        "name": "Living Room, Projector",
         "state": "unchecked"
     },
     {
         "id": "fume_1",
-        "icon": "devices",
+        "icon": "toys",
         "name": "Fume Cupboard, Kitchen",
         "state": "unchecked"
     },
     {
-        "id": "tv_living_2",
-        "icon": "devices",
-        "name": "TV, Living Room 2",
+        "id": "light_kitchen_1",
+        "icon": "lightbulb_outline",
+        "name": "Kitchen, Light",
         "state": "unchecked"
     }
 ]
