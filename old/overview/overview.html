@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="../../common-styles.css">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" href="../desktop-styles.css">
+	<link rel="stylesheet" href="../mobile-styles.css">
 </head>
 
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -45,38 +45,30 @@
 				<h3>SmartHome</h3>
 			</div>
 			<div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-				<a href="overview.html" class="mdl-layout__tab is-active">Home</a>
+				<a href="overview.html" class="mdl-layout__tab is-active">Overview</a>
 				<a href="../routines/routines.html" class="mdl-layout__tab">Routines</a>
 				<a href="../groups/groups.html" class="mdl-layout__tab">Groups</a>
 				<a href="../devices/devices.html" class="mdl-layout__tab">Devices</a>
-				<a href="../settings/settings.html" class="mdl-layout__tab">	<i class="material-icons" style="margin-top: 75%">settings</i></a>
 			</div>
 		</header>
 		<main class="mdl-layout__content">
 			<div class="mdl-layout__tab-panel is-active" id="overview">
 				<section>
-
-
-
-							<div class="mdl-card mdl-cell mdl-cell--12-col">
-								<div class="mdl-card__title  b-p-0">
-									<h2 class="mdl-card__title-text">Active devices</h2>
-								</div>
-								<ul id="overview-list" class="mdl-list">
-									<!--EMPTY LIST START-->
-									<li class="mdl-list__item empty-list">
+					<div class="mdl-card mdl-cell mdl-cell--12-col">
+						<div class="mdl-card__title  b-p-0">
+							<h2 class="mdl-card__title-text">Active devices</h2>
+						</div>
+						<ul id="overview-list" class="mdl-list">
+							<!--EMPTY LIST START-->
+							<li class="mdl-list__item empty-list">
 								<span class="mdl-list__item-primary-content">
                                     <i class="material-icons  mdl-list__item-avatar">done</i>
                                      No active devices
                                 </span>
-									</li>
-									<!--EMPTY LIST END-->
-								</ul>
-							</div>
-
-
-
-
+							</li>
+							<!--EMPTY LIST END-->
+						</ul>
+					</div>
 					<!--LIST TEMPLATE START-->
 					<div class="template">
 						<li class="mdl-list__item">

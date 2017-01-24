@@ -3,15 +3,15 @@
     "id": "routine_1",
     "icon": "tv",
     "name": "Projection",
-    "devices": [
+    "devices":
       [
         {
           "id": "beamer_living_1",
-          "state": "unchecked"
+          "new_state": "checked"
         },
         {
           "id": "shutter_living_1",
-          "new_state": "down"
+          "new_state": "checked"
         },
         {
           "id": "light_living_1",
@@ -22,14 +22,13 @@
           "new_state": "unchecked"
         }
       ]
-    ]
   },
   {
     "id": "routine_2",
-    "icon": "tv",
+    "icon": "restaurant",
     "name": "Cooking",
-    "devices": [
-      [
+    "devices":
+    [
         {
           "id": "light_dining_1",
           "new_state": "checked"
@@ -42,44 +41,43 @@
           "id": "fume_1",
           "new_state": "checked"
         }
-      ]
-    ]
-  },
-  {
-    "id": "routine_2",
-    "icon": "wb_sunny",
-    "name": "Waking Up",
-    "repeat_at": "06:30",
-    "active_style": "active_green",
-    "state": "checked",
-    "devices": [
-      [
-        {
-          "id": "light_dining_1",
-          "new_state": "checked"
-        },
-        {
-          "id": "light_living_1",
-          "new_state": "checked"
-        },
-        {
-          "id": "light_living_2",
-          "new_state": "checked"
-        },
-        {
-          "id": "light_kitchen_1",
-          "new_state": "checked"
-        }
-      ]
     ]
   },
   {
     "id": "routine_3",
+    "icon": "wb_sunny",
+    "name": "Waking Up",
+    "repeat_at": "06:30",
+    "days": ["Monday","Tuesday","Wednesday"],
+    "active_style": "active_green",
+    "state": "checked",
+    "devices":
+      [
+        {
+          "id": "light_dining_1",
+          "new_state": "checked"
+        },
+        {
+          "id": "light_living_1",
+          "new_state": "checked"
+        },
+        {
+          "id": "light_living_2",
+          "new_state": "checked"
+        },
+        {
+          "id": "light_kitchen_1",
+          "new_state": "checked"
+        }
+    ]
+  },
+  {
+    "id": "routine_4",
     "icon": "brightness_2",
     "name": "Going to Sleep",
     "repeat_at": "23:00",
     "active_style": "active_red",
-    "devices": [
+    "devices":
       [
         {
           "id": "light_dining_1",
@@ -97,7 +95,6 @@
           "id": "light_kitchen_1",
           "new_state": "unchecked"
         }
-      ]
     ]
   }
 ]

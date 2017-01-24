@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="../../common-styles.css">
 
     <!--Custom styles-->
-    <link rel="stylesheet" href="../mobile-styles.css">
+    <link rel="stylesheet" href="../desktop-styles.css">
 </head>
 
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -46,15 +46,18 @@
             <h3>SmartHome</h3>
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-            <a href="../overview/overview.html" class="mdl-layout__tab ">Overview</a>
+            <a href="../overview/overview.html" class="mdl-layout__tab ">Home</a>
             <a href="../routines/routines.html" class="mdl-layout__tab">Routines</a>
             <a href="groups.html" class="mdl-layout__tab is-active">Groups</a>
             <a href="../devices/devices.html" class="mdl-layout__tab">Devices</a>
+            <a href="../settings/settings.html" class="mdl-layout__tab">	<i class="material-icons " style="margin-top: 75%">settings</i></a>
         </div>
     </header>
     <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="Groups">
             <section>
+
+
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div class="mdl-card__title  b-p-0">
                         <h2 class="mdl-card__title-text">Groups</h2>
@@ -70,6 +73,7 @@
                         <!--EMPTY LIST END-->
                     </ul>
                 </div>
+
                 <!--LIST TEMPLATE START-->
                 <div class="template">
                     <li class="mdl-list__item main-item" onclick="mainItemClicked(this)">
