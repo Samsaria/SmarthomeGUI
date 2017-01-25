@@ -1,6 +1,13 @@
 //Load data
 $(document).ready(function() {
-    createListFromFile("#routine-list", ".template > li", "../../data/routines.json", "routines");
+    var localStorageRoutines = JSON.parse(localStorage.getItem('routines'));
+    if (localStorageRoutines) {
+        createListFromData("#routine-list", ".template > li", localStorageRoutines, "routines");
+    } else {
+        createListFromFile("#routine-list", ".template > li", dataFilePath, "routines")
+            .then(() =>  sortByName("#device-list", true));
+    }
+
 });
 
 function routineExecuted() {

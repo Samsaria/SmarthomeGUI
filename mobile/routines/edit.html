@@ -97,34 +97,23 @@
 
         <div class="mdl-card mdl-card__title mdl-list__item mdl-cell mdl-cell--12-col">
             <strong>Dates</strong>
-            <label class="mdl-switch mdl-js-switch-Monday mdl-js-ripple-effect">
-                <input type="checkbox" id="Monday" jsonId="Monday" class="mdl-switch__input"/>Monday
-            </label>
-            <label class="mdl-switch mdl-js-switch-Tuesday mdl-js-ripple-effect">
-                <input type="checkbox" id="Tuesday" jsonId="Tuesday" class="mdl-switch__input"/>Tuesday
-            </label>
-            <label class="mdl-switch mdl-js-switch-Wednesday mdl-js-ripple-effect">
-                <input type="checkbox" id="Wednesday" jsonId="Wednesday" class="mdl-switch__input"/>Wednesday
-            </label>
-            <label class="mdl-switch mdl-js-switch-Thursday mdl-js-ripple-effect">
-                <input type="checkbox" id="Thursday" jsonId="Thursday" class="mdl-switch__input"/>Thursday
-            </label>
-            <label class="mdl-switch mdl-js-switch-Friday mdl-js-ripple-effect">
-                <input type="checkbox" id="Friday" jsonId="Friday" class="mdl-switch__input"/>Friday
-            </label>
-            <label class="mdl-switch mdl-js-switch-Saturday mdl-js-ripple-effect">
-                <input type="checkbox" id="Saturday" jsonId="Saturday" class="mdl-switch__input"/>Saturday
-            </label>
-            <label class="mdl-switch mdl-js-switch-Sunday mdl-js-ripple-effect">
-                <input type="checkbox" id="Sunday" jsonId="Sunday" class="mdl-switch__input"/>Sunday
-            </label>
+            <label><input type="checkbox" id="Monday" value="Monday">Monday</label>
+            <label><input type="checkbox" id="Tuesday" value="Tuesday">Tuesday</label>
+            <label><input type="checkbox" id="Wednesday" value="Wednesday">Wednesday</label>
+            <label><input type="checkbox" id="Thursday" value="Thursday">Thursday</label>
+            <label><input type="checkbox" id="Friday" value="Friday">Friday</label>
+            <label><input type="checkbox" id="Saturday" value="Saturday">Saturday</label>
+            <label><input type="checkbox" id="Sunday" value="Sunday">Sunday</label>
         </div>
 
         <div class="mdl-card mdl-card__title mdl-cell mdl-cell--12-col">
             <strong>Start time</strong>
-            <label><input type="text"> : <input type="text"></label>
+            <label><input id="time_hours" class="js-number" maxlength="2" type="text"> : <input id="time_minutes" class="js-number" maxlength="2" type="text"></label>
         </div>
 
+        <div class="mdl-card mdl-card__title mdl-cell mdl-cell--12-col">
+          <label><input type="checkbox" id="active" value="active">Active</label>
+        </div>
         <div class="mdl-card mdl-card__title mdl-cell mdl-cell--12-col">
             <a onclick="saveRoutine()" type="button" class="mdl-button">
                 <span >Save</span>

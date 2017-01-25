@@ -1,3 +1,4 @@
+var routineWorkingOn;
 //Load data
 $(document).ready(function () {
     let routineId = getUrlParameter('id');
@@ -19,6 +20,7 @@ $(document).ready(function () {
     $('#routine_icon').text(found[0].icon);
     prefillDates(found[0].days);
     prefillTime(found[0].repeat_at);
+    prefillActive(found[0].state);
 });
 
 function prefillDates(days){
@@ -28,14 +30,81 @@ function prefillDates(days){
 }
 
 function prefillTime(time){
+    arr = time.split(':');
+    hour = $.trim(arr[0]);
+    min = $.trim(arr[1]);
 
+    $('#time_hours')[0].value = hour;
+    $('#time_minutes')[0].value = min;
 }
-
+function prefillActive(active){
+    $('#active').prop("checked", active);
+}
 function saveRoutine(){
-    saveDays();
-    saveTime();
-    saveActive();
+    var days = [];
+
+    if($('#Monday')[0].checked){
+        days.push("Monday")
+    }
+    if($('#Tuesday')[0].checked){
+        days.push("Tuesday")
+    }
+    if($('#Wednesday')[0].checked){
+        days.push("Wednesday")
+    }
+    if($('#Thursday')[0].checked){
+        days.push("Thursday")
+    }
+    if($('#Friday')[0].checked){
+        days.push("Friday")
+    }
+    if($('#Saturday')[0].checked){
+        days.push("Saturday")
+    }
+    if($('#Sunday')[0].checked){
+        days.push("Sunday")
+    }
+
+    /** set the time **/
+    let hours = $('#time_hours')[0].value;
+    let minutes = $('#time_minutes')[0].value;
+    let timestring = hours + ":" + minutes;
+
+    /** Set the state **/
+    let state;
+    let active_style;
+    /** set active **/
+    if($('#active')[0].checked){
+         state = "checked";
+         active_style =  "active_green";
+    }else{
+        state = "";
+        active_style =  "";
+        timestring = "";
+    }
+
+    //No active without time
+    if($('#active')[0].checked && timestring == ":"){
+        swal("No time provided!", "Cannot be active without time!", "error");
+    }
+    else{
+        let routines = JSON.parse(localStorage.getItem('routines'));
+
+        let currentId = getUrlParameter('id');
+        for(let routine of routines){
+            if(routine.id == currentId){
+                routine.days = days;
+                routine.repeat_at = timestring;
+                routine.state = state;
+                routine.active_style = active_style;
+            }
+        }
+
+        writeTolocalStorage("routines", routines);
+        swal("Saved!", "Data has been saved!", "success");
+    }
 }
+
 function routineExecuted() {
     swal("Successfully executed!!", "Wait for your devices to perform!", "success");
 }

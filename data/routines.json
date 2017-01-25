@@ -76,7 +76,7 @@
     "icon": "brightness_2",
     "name": "Going to Sleep",
     "repeat_at": "23:00",
-    "active_style": "active_red",
+    "days": [],
     "devices":
       [
         {
