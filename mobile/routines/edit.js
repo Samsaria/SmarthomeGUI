@@ -6,9 +6,9 @@ $(document).ready(function () {
     var found = getObjects(routines, 'id', routineId); // Returns an array of matching objects
 
     let devices = JSON.parse(localStorage.getItem('devices'));
-    let foundDevices =[];
+    let foundDevices = [];
 
-    for(let device of found[0].devices){
+    for (let device of found[0].devices) {
         let temp = getObjects(devices, "id", device.id);
         temp[0].new_state = device.new_state;
         foundDevices.push(temp);
@@ -18,81 +18,80 @@ $(document).ready(function () {
 
     $('#routine_name').text(found[0].name);
     $('#routine_icon').text(found[0].icon);
+
     prefillDates(found[0].days);
     prefillTime(found[0].repeat_at);
     prefillActive(found[0].state);
 });
 
-function prefillDates(days){
-    for(let day of days){
-        $('#'+day).prop("checked", true);
+function prefillDates(days) {
+    if (days == null)
+        return
+    for (let day of days) {
+        $('#' + day).prop("checked", true);
     }
 }
 
-function prefillTime(time){
-    arr = time.split(':');
-    hour = $.trim(arr[0]);
-    min = $.trim(arr[1]);
+function prefillTime(time) {
+    if (time)
+        $('#time')[0].value = time;
+}
 
-    $('#time_hours')[0].value = hour;
-    $('#time_minutes')[0].value = min;
+function prefillActive(active) {
+    if (active)
+        $('#active').prop("checked", active);
 }
-function prefillActive(active){
-    $('#active').prop("checked", active);
-}
-function saveRoutine(){
+
+function saveRoutine() {
     var days = [];
 
-    if($('#Monday')[0].checked){
+    if ($('#Monday').closest(".mdl-checkbox").hasClass("is-checked")) {
         days.push("Monday")
     }
-    if($('#Tuesday')[0].checked){
+    if ($('#Tuesday').closest(".mdl-checkbox").hasClass("is-checked")) {
         days.push("Tuesday")
     }
-    if($('#Wednesday')[0].checked){
+    if ($('#Wednesday').closest(".mdl-checkbox").hasClass("is-checked")) {
         days.push("Wednesday")
     }
-    if($('#Thursday')[0].checked){
+    if ($('#Thursday').closest(".mdl-checkbox").hasClass("is-checked")) {
         days.push("Thursday")
     }
-    if($('#Friday')[0].checked){
+    if ($('#Friday').closest(".mdl-checkbox").hasClass("is-checked")) {
         days.push("Friday")
     }
-    if($('#Saturday')[0].checked){
+    if ($('#Saturday').closest(".mdl-checkbox").hasClass("is-checked")) {
         days.push("Saturday")
     }
-    if($('#Sunday')[0].checked){
+    if ($('#Sunday').closest(".mdl-checkbox").hasClass("is-checked")) {
         days.push("Sunday")
     }
 
     /** set the time **/
-    let hours = $('#time_hours')[0].value;
-    let minutes = $('#time_minutes')[0].value;
-    let timestring = hours + ":" + minutes;
+    let timestring = $('#time')[0].value;
 
     /** Set the state **/
     let state;
     let active_style;
     /** set active **/
-    if($('#active')[0].checked){
-         state = "checked";
-         active_style =  "active_green";
-    }else{
+    if ($('#active').closest(".mdl-checkbox").hasClass("is-checked")) {
+        state = "checked";
+        active_style = "active_green";
+    } else {
         state = "";
-        active_style =  "";
+        active_style = "";
         timestring = "";
     }
 
     //No active without time
-    if($('#active')[0].checked && timestring == ":"){
+    if ($('#active').closest(".mdl-checkbox").hasClass("is-checked") && !timestring.match(/\d{1,2}:\d\d/)) {
         swal("No time provided!", "Cannot be active without time!", "error");
-    }
-    else{
+    } else {
         let routines = JSON.parse(localStorage.getItem('routines'));
 
         let currentId = getUrlParameter('id');
-        for(let routine of routines){
-            if(routine.id == currentId){
+        for (let routine of routines) {
+            if (routine.id == currentId) {
                 routine.days = days;
                 routine.repeat_at = timestring;
                 routine.state = state;

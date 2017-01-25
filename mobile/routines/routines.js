@@ -1,3 +1,5 @@
+const dataFilePath = '../../data/routines.json';
+
 //Load data
 $(document).ready(function() {
     var localStorageRoutines = JSON.parse(localStorage.getItem('routines'));
@@ -11,7 +13,7 @@ $(document).ready(function() {
 });
 
 function routineExecuted() {
-    swal("Successfully executed!!", "Wait for your devices to perform!", "success");
+    swal("Successfully executed", "Wait for your devices to perform.", "success");
 }
 
 
