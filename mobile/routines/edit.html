@@ -127,9 +127,17 @@
                     <div class="mdl-card mdl-card__title mdl-cell mdl-cell--12-col">
                         <strong>Start time</strong>
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" id="time" pattern="\d{1,2}:\d\d">
+                            <!-- <input class="mdl-textfield__input" type="text" id="time" pattern="\d{1,2}:\d\d">
                             <label class="mdl-textfield__label" for="time">12:34</label>
-                            <span class="mdl-textfield__error">Please use a correct time format. E.g. 12:34</span>
+                            <span class="mdl-textfield__error">Please use a correct time format. E.g. 12:34</span> --> 
+				<div id="time-range">
+				    <p>Time Range: <span class="slider-time">10:00 AM</span> - <span class="slider-time2">12:00 PM</span>
+
+				    </p>
+				    <div class="sliders_step1">
+					<div id="slider-range"></div>
+				    </div>
+				</div>
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col" style="text-align: center;">
