@@ -16,8 +16,8 @@ function resetState() {
 }
 
 function reloadData(){
-    reloadJSON("../../data/routines.json", "routines");
-    reloadJSON("../../data/devices.json", "devices");
-    reloadJSON("../../data/groups.json", "groups");
+    reloadJSON("../data/routines.json", "routines");
+    reloadJSON("../data/devices.json", "devices");
+    reloadJSON("../data/groups.json", "groups");
 }
 

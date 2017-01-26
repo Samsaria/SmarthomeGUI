@@ -1,4 +1,4 @@
-const dataFilePath = '../../data/devices.json';
+const dataFilePath = '../data/devices.json';
 
 //Load data either from local storage, if not present load from file
 $(document).ready(() => {

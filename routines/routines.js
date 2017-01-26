@@ -1,4 +1,4 @@
-const dataFilePath = '../../data/routines.json';
+const dataFilePath = '../data/routines.json';
 
 //Load data
 $(document).ready(function () {

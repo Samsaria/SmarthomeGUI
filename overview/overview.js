@@ -1,5 +1,5 @@
 const removeDelay = 1500; //ms
-const dataFilePath = '../../data/devices.json';
+const dataFilePath = '../data/devices.json';
 
 //Load data
 $(document).ready(() => {

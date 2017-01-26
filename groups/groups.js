@@ -4,7 +4,7 @@ $(document).ready(() => {
     if (localStorageGroups) {
         createSubListFromData("#groups-list", ".template > li", ".subListTemplate > li", localStorageGroups, "groups");
     } else {
-        createListSubListFromFile("#groups-list", ".template > li", ".subListTemplate > li", "../../data/groups.json", "groups");
+        createListSubListFromFile("#groups-list", ".template > li", ".subListTemplate > li", "../data/groups.json", "groups");
     }
 });
 
@@ -47,7 +47,7 @@ function createSubListFromData(listSelector, templateSelector, subListTemplateSe
     if (localStorageDevices) {
         parseInformation(data, localStorageDevices, templateStr, listElement, subListTemplateStr, "devices");
     } else {
-        readDataFile("../../data/devices.json")
+        readDataFile("../data/devices.json")
             .then(subList => parseInformation(data, subList, templateStr, listElement, subListTemplateStr, "devices"));
     }
 
